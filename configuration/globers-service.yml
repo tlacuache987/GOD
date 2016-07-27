@@ -5,5 +5,11 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/,http://localhost:8011/eureka/,http://localhost:8012/eureka/,http://localhost:8013/eureka/
 
+spring:
+  application:
+  cloud:
+    config:
+      uri: http://localhost:8001
+	  
 lol: Hello World
 environment: Github Server Repo
