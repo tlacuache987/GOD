@@ -1,0 +1,10 @@
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'god-microservices-workstationPositions-service'
+	version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+	compile project(":god-microservices-domain")
+}

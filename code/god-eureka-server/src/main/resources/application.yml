@@ -1,0 +1,43 @@
+---
+spring:
+  profiles: default
+server:
+  port: 8010  
+eureka:
+  instance:
+    hostname: localhost  
+  client:
+    registerWithEureka: false #only used when deploy one instance of eureka
+    fetchRegistry: false #only used when deploy one instance of eureka
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+---
+spring:
+  profiles: god-eureka-one
+server:
+  port: 8011  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8012/eureka/,http://localhost:8013/eureka/
+
+---
+spring:
+  profiles: god-eureka-two
+server:
+  port: 8012  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8011/eureka/,http://localhost:8013/eureka/
+
+---
+spring:
+  profiles: god-eureka-three
+server:
+  port: 8013  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8011/eureka/,http://localhost:8012/eureka/
+      

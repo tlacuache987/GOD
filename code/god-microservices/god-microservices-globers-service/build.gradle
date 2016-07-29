@@ -1,0 +1,18 @@
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'god-microservices-globers-service'
+	version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+	/*compile("org.springframework.boot:spring-boot-starter-aop")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")*/
+
+	compile project(":god-microservices-domain")
+
+	/*compile("org.webjars:bootstrap:3.2.0")
+
+	testCompile("org.springframework.boot:spring-boot-starter-test")*/
+}

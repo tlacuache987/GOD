@@ -1,0 +1,24 @@
+---
+server:
+  port: 8001
+---  
+spring:
+  profiles: default
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/tlacuache987/GOD
+          searchPaths: configuration
+          
+---  
+spring:
+  profiles: lanrepo
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://10.230.8.50:8082/r/GOD
+          searchPaths: configuration
+          #username: <some-user>
+          #password: <a-password>
