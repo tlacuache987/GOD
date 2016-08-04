@@ -1,0 +1,6 @@
+---
+spring.thymeleaf.cache: false # Allow thymeleaf template changes to reload:
+
+# Zuul-proxied services can be found by calling /services/v1/globers,/services/v1/workstations, etc
+zuul:
+  prefix: /services
