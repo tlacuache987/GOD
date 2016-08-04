@@ -62,8 +62,10 @@ class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Workstations Microservice - Spring Cloud Netflix")
-				.description("API REST documentation about Workstations Microservice").contact("Globant Talent Pool")
+		@SuppressWarnings("deprecation")
+		ApiInfo apiInfo = new ApiInfoBuilder().title("Globers Microservice - Spring Cloud Netflix")
+				.description("API REST documentation about Globers Microservice").contact("Globant Talent Pool")
 				.build();
+		return apiInfo;
 	}
 }

@@ -29,7 +29,7 @@ public class GloberServiceImpl implements IGloberService {
 			WorkstationPosition wsp = workstationPositionsRestClient
 					.getWorkstationPositionByIdGloberFromFeignClient(glob.getId());
 
-			glob.setWorkstation(wsp);
+			glob.setWorkstationPosition(wsp);
 		}
 
 		return globersList;

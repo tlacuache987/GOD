@@ -28,5 +28,5 @@ public class Glober {
 	private String name;
 
 	@Transient
-	private WorkstationPosition workstation;
+	private WorkstationPosition workstationPosition;
 }
