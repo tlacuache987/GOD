@@ -19,7 +19,7 @@ public class WorkstationsRestClient {
 	}
 
 	public Workstation getFallbackWorkstation(Long idWorkstation) {
-		return new Workstation(0L, "---", "---", "---");
+		return null;
 	}
 
 }

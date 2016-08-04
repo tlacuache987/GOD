@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.globant.ms.god.domain.Glober;
+import com.globant.ms.god.domain.WorkstationPosition;
 import com.globant.ms.god.globers.repository.IGloberRepository;
 import com.globant.ms.god.globers.service.IGloberService;
+import com.globant.ms.god.globers.ws.rest.client.WorkstationPositionsRestClient;
 
 @Service
 public class GloberServiceImpl implements IGloberService {
@@ -16,9 +18,21 @@ public class GloberServiceImpl implements IGloberService {
 	@Autowired
 	private IGloberRepository globerRepository;
 
+	@Autowired
+	private WorkstationPositionsRestClient workstationPositionsRestClient;
+
 	@Override
 	public List<Glober> getAll() {
-		return globerRepository.findAll();
+		List<Glober> globersList = globerRepository.findAll();
+
+		for (Glober glob : globersList) {
+			WorkstationPosition wsp = workstationPositionsRestClient
+					.getWorkstationPositionByIdGloberFromFeignClient(glob.getId());
+
+			glob.setWorkstation(wsp);
+		}
+
+		return globersList;
 	}
 
 	@Override
